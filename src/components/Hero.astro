@@ -2,9 +2,7 @@
 ---
 
 <section class="bg-brand-ice pt-16">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-
-    <!-- Left: copy -->
+  <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
     <div data-animate>
       <span class="inline-block text-brand-sky font-semibold text-xs tracking-widest uppercase mb-5">
         Unabhängig · Transparent · Persönlich
@@ -14,17 +12,17 @@
         Altersvorsorgeplanung für alle — fair und unabhängig.
       </h1>
 
-      <p class="text-lg text-brand-slate leading-relaxed mb-10 max-w-xl">
+      <p class="text-lg text-brand-slate leading-relaxed mb-10">
         Ich helfe Ihnen, Ihre Altersvorsorge unabhängig von Versicherungsinteressen zu planen. Verständlich, ehrlich und zu einem Preis, der für jeden erschwinglich ist.
       </p>
 
-      <div class="flex flex-wrap gap-4 mb-10">
-        <a
-          href="#pakete"
-          class="inline-flex items-center bg-brand-blue hover:bg-brand-navy text-white px-7 py-3.5 rounded-lg font-semibold text-base transition-colors duration-200 shadow-sm"
+      <div class="flex flex-wrap justify-center gap-4 mb-10">
+        <button
+          data-open-modal
+          class="inline-flex items-center bg-brand-blue hover:bg-brand-navy text-white px-7 py-3.5 rounded-lg font-semibold text-base transition-colors duration-200 shadow-sm cursor-pointer"
         >
           Paket entdecken
-        </a>
+        </button>
         <a
           href="#ueber-mich"
           class="inline-flex items-center border border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white px-7 py-3.5 rounded-lg font-semibold text-base transition-colors duration-200"
@@ -33,7 +31,7 @@
         </a>
       </div>
 
-      <div class="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-6 text-sm text-brand-slate">
+      <div class="flex flex-col sm:flex-row sm:flex-wrap justify-center gap-3 sm:gap-6 text-sm text-brand-slate">
         <span class="flex items-center gap-2">
           <svg class="w-4 h-4 text-brand-blue shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
           Keine Versicherungsprovisionen
@@ -47,66 +45,6 @@
           Über 30 Jahre Erfahrung
         </span>
       </div>
-    </div>
-
-    <!-- Right: geometric illustration -->
-    <div class="flex items-center justify-center" data-animate style="transition-delay:150ms" aria-hidden="true">
-      <svg viewBox="0 0 460 420" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full max-w-md">
-        <!-- Background -->
-        <rect x="20" y="20" width="420" height="380" rx="16" fill="white" stroke="#CBD5E1" stroke-width="1"/>
-
-        <!-- Chart area background -->
-        <rect x="60" y="50" width="360" height="270" rx="4" fill="#EBF3FC" opacity="0.5"/>
-
-        <!-- Grid lines (horizontal) -->
-        <line x1="60" y1="185" x2="420" y2="185" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="4 4"/>
-        <line x1="60" y1="118" x2="420" y2="118" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="4 4"/>
-        <line x1="60" y1="252" x2="420" y2="252" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="4 4"/>
-
-        <!-- Y-axis -->
-        <line x1="60" y1="50" x2="60" y2="320" stroke="#CBD5E1" stroke-width="1.5"/>
-        <!-- X-axis -->
-        <line x1="60" y1="320" x2="420" y2="320" stroke="#CBD5E1" stroke-width="1.5"/>
-
-        <!-- Area fill under curve -->
-        <path d="M80,285 C130,270 180,240 230,200 C280,160 330,120 400,80 L400,320 L80,320 Z" fill="#1E5FA8" opacity="0.07"/>
-
-        <!-- Main growth curve -->
-        <path d="M80,285 C130,270 180,240 230,200 C280,160 330,120 400,80" stroke="#1E5FA8" stroke-width="3" stroke-linecap="round" fill="none"/>
-
-        <!-- Secondary curve (lighter) -->
-        <path d="M80,305 C130,295 180,275 230,255 C280,235 330,210 400,185" stroke="#3B82C4" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.5"/>
-
-        <!-- Data points on main curve -->
-        <circle cx="80"  cy="285" r="5" fill="white" stroke="#1E5FA8" stroke-width="2"/>
-        <circle cx="160" cy="255" r="5" fill="white" stroke="#1E5FA8" stroke-width="2"/>
-        <circle cx="240" cy="200" r="6" fill="#1E5FA8"/>
-        <circle cx="320" cy="140" r="5" fill="white" stroke="#1E5FA8" stroke-width="2"/>
-        <circle cx="400" cy="80"  r="6" fill="#0F2A4A"/>
-
-        <!-- X-axis labels -->
-        <text x="80"  y="340" text-anchor="middle" fill="#64748B" font-size="11" font-family="system-ui">Heute</text>
-        <text x="240" y="340" text-anchor="middle" fill="#64748B" font-size="11" font-family="system-ui">10 J.</text>
-        <text x="400" y="340" text-anchor="middle" fill="#64748B" font-size="11" font-family="system-ui">Rente</text>
-
-        <!-- Y-axis labels -->
-        <text x="48" y="289" text-anchor="end" fill="#64748B" font-size="11" font-family="system-ui">€</text>
-        <text x="48" y="189" text-anchor="end" fill="#64748B" font-size="11" font-family="system-ui">€€</text>
-        <text x="48" y="122" text-anchor="end" fill="#64748B" font-size="11" font-family="system-ui">€€€</text>
-
-        <!-- Info box top right -->
-        <rect x="290" y="55" width="120" height="52" rx="8" fill="white" stroke="#CBD5E1" stroke-width="1"/>
-        <text x="350" y="76"  text-anchor="middle" fill="#64748B"  font-size="10" font-family="system-ui">Ihr Vorsorgekapital</text>
-        <text x="350" y="96"  text-anchor="middle" fill="#0F2A4A"  font-size="16" font-weight="bold" font-family="system-ui">+187%</text>
-
-        <!-- Bottom stats -->
-        <rect x="60"  y="352" width="110" height="36" rx="6" fill="#EBF3FC"/>
-        <rect x="182" y="352" width="110" height="36" rx="6" fill="#EBF3FC"/>
-        <rect x="304" y="352" width="116" height="36" rx="6" fill="#EBF3FC"/>
-        <text x="115" y="374" text-anchor="middle" fill="#0F2A4A" font-size="11" font-weight="600" font-family="system-ui">Unabhängig</text>
-        <text x="237" y="374" text-anchor="middle" fill="#0F2A4A" font-size="11" font-weight="600" font-family="system-ui">Transparent</text>
-        <text x="362" y="374" text-anchor="middle" fill="#0F2A4A" font-size="11" font-weight="600" font-family="system-ui">Persönlich</text>
-      </svg>
     </div>
   </div>
 </section>

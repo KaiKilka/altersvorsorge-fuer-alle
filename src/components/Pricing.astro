@@ -9,7 +9,6 @@ const plans = [
       'Rentenlücken-Analyse',
       'Schriftlicher Bericht mit Empfehlungen',
       '1× 60 Min. Online-Beratung',
-      '30 Tage E-Mail-Support',
     ],
     cta: 'Jetzt buchen',
     highlighted: false,
@@ -24,7 +23,6 @@ const plans = [
       'Unabhängiger ETF & Produktvergleich',
       'Steueroptimierung Grundlagen',
       '2× 60 Min. Online-Beratung',
-      '90 Tage E-Mail-Support',
     ],
     cta: 'Empfohlenes Paket wählen',
     highlighted: true,
@@ -38,7 +36,6 @@ const plans = [
       'Vollständige Finanzplanung',
       'Bestehende Verträge prüfen',
       'Jährliches Update-Gespräch',
-      'Priority-Support 12 Monate',
       'Persönlicher Ansprechpartner',
     ],
     cta: 'Jetzt buchen',
@@ -97,17 +94,17 @@ const plans = [
             ))}
           </ul>
 
-          <a
-            href="#kontakt"
+          <button
+            data-open-modal
             class={[
-              'block w-full text-center py-3 rounded-lg font-semibold text-sm transition-colors duration-200',
+              'block w-full text-center py-3 rounded-lg font-semibold text-sm transition-colors duration-200 cursor-pointer',
               plan.highlighted
                 ? 'bg-white text-brand-navy hover:bg-brand-ice'
                 : 'bg-brand-blue text-white hover:bg-brand-navy',
             ].join(' ')}
           >
             {plan.cta}
-          </a>
+          </button>
         </div>
       ))}
     </div>
