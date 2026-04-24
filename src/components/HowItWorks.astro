@@ -2,64 +2,51 @@
 const steps = [
   {
     number: '01',
-    emoji: '📦',
     title: 'Paket wählen',
-    text: 'Wähle das Paket, das zu deiner Situation passt. Einmalige Zahlung, kein Abo.',
-    color: 'bg-brand-coral',
+    text: 'Wählen Sie das Paket, das zu Ihrer Situation passt. Einmalige Zahlung, kein Abo.',
   },
   {
     number: '02',
-    emoji: '📝',
     title: 'Fragebogen ausfüllen',
-    text: 'In 10 Minuten teilst du uns deine Ziele, deinen Lebensstandard und deine aktuelle Situation mit.',
-    color: 'bg-brand-mint',
+    text: 'In 10 Minuten teilen Sie mir Ihre Ziele, Ihren Lebensstandard und Ihre aktuelle Situation mit.',
   },
   {
     number: '03',
-    emoji: '🗓️',
     title: 'Gespräch & Fahrplan',
-    text: 'Im persönlichen Online-Gespräch erarbeiten wir deinen individuellen Altersvorsorge-Fahrplan.',
-    color: 'bg-brand-sun',
+    text: 'Im persönlichen Online-Gespräch erarbeite ich Ihren individuellen Altersvorsorge-Fahrplan.',
   },
 ];
 ---
 
-<section id="so-gehts" class="bg-brand-soft pt-0 pb-0">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+<section id="so-gehts" class="bg-brand-ice py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16" data-animate>
-      <h2 class="font-display text-4xl md:text-5xl font-bold text-brand-ink mb-4">
-        So einfach geht's ✨
+      <h2 class="font-display text-4xl md:text-5xl font-bold text-brand-navy mb-4">
+        So funktioniert es
       </h2>
-      <p class="text-xl text-brand-ink/60 max-w-xl mx-auto">
-        Drei Schritte bis zu deinem persönlichen Altersvorsorge-Fahrplan.
+      <p class="text-xl text-brand-slate max-w-xl mx-auto">
+        Drei Schritte bis zu Ihrem persönlichen Altersvorsorge-Fahrplan.
       </p>
     </div>
 
     <div class="relative grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- Dashed connector line (desktop) -->
-      <div class="hidden md:block absolute top-7 left-[calc(16.67%+28px)] right-[calc(16.67%+28px)] h-0 border-t-2 border-dashed border-brand-mint/35 z-0" aria-hidden="true"></div>
+      <div class="hidden md:block absolute top-7 left-[calc(16.67%+28px)] right-[calc(16.67%+28px)] border-t-2 border-dashed border-brand-border z-0" aria-hidden="true"></div>
 
       {steps.map((step, i) => (
         <div
           data-animate
-          style={`transition-delay: ${i * 130}ms`}
+          style={`transition-delay:${i * 130}ms`}
           class="relative z-10 flex flex-col items-center text-center"
         >
-          <div class={`${step.color} w-14 h-14 rounded-full flex items-center justify-center text-white font-bold text-base mb-6 shadow-lg`}>
+          <div class="w-14 h-14 rounded-full bg-brand-blue flex items-center justify-center text-white font-bold text-base mb-6 shadow-sm">
             {step.number}
           </div>
-          <div class="bg-white rounded-3xl p-8 shadow-md w-full hover:shadow-xl transition-shadow duration-300">
-            <div class="text-4xl mb-4" aria-hidden="true">{step.emoji}</div>
-            <h3 class="font-display text-xl font-bold text-brand-ink mb-3">{step.title}</h3>
-            <p class="text-brand-ink/65 leading-relaxed text-sm md:text-base">{step.text}</p>
+          <div class="bg-white rounded-xl p-8 border border-brand-border shadow-sm hover:shadow-md transition-shadow duration-300 w-full">
+            <h3 class="font-display text-xl font-bold text-brand-navy mb-3">{step.title}</h3>
+            <p class="text-brand-slate leading-relaxed text-sm">{step.text}</p>
           </div>
         </div>
       ))}
     </div>
   </div>
-
-  <!-- Wave to white -->
-  <svg viewBox="0 0 1440 70" fill="white" preserveAspectRatio="none" aria-hidden="true" style="display:block;margin-bottom:-2px">
-    <path d="M0,35 C360,0 1080,70 1440,35 L1440,70 L0,70 Z"/>
-  </svg>
 </section>

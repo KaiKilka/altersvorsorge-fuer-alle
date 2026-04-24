@@ -1,40 +1,32 @@
 ---
 const cards = [
   {
-    emoji: '🚫',
     title: 'Keine Provisionen',
-    text: 'Wir verkaufen keine Versicherungen und verdienen keine Provision. Was wir empfehlen, ist wirklich das Beste für dich.',
-    bg: 'bg-brand-soft',
+    text: 'Ich verkaufe keine Versicherungsprodukte und erhalte keine Provisionen. Was ich Ihnen empfehle, dient ausschließlich Ihren Interessen.',
   },
   {
-    emoji: '💰',
     title: 'Faire Festpreise',
-    text: 'Einmalige, transparente Preise. Kein Abo, keine Überraschungen.',
-    bg: 'bg-brand-sky',
+    text: 'Einmalige, transparente Preise. Kein Abo, keine versteckten Kosten, keine Überraschungen.',
   },
   {
-    emoji: '🧭',
-    title: 'Dein persönlicher Plan',
-    text: 'Kein Schema F. Wir analysieren deine Situation und erstellen einen maßgeschneiderten Fahrplan.',
-    bg: 'bg-brand-mist',
+    title: 'Ihr persönlicher Plan',
+    text: 'Kein Schema F. Ich analysiere Ihre individuelle Situation und erstelle einen maßgeschneiderten Vorsorgefahrplan.',
   },
   {
-    emoji: '🌍',
-    title: 'Für alle gemacht',
-    text: 'Egal ob Berufseinsteiger, Familie oder kurz vor der Rente — wir haben ein Paket für dich.',
-    bg: 'bg-brand-soft',
+    title: 'Für alle zugänglich',
+    text: 'Ob Berufseinsteiger, Familie oder kurz vor der Rente — gute Vorsorgeberatung sollte keine Frage des Einkommens sein.',
   },
 ];
 ---
 
-<section id="warum-wir" class="bg-white pt-20 pb-0">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+<section id="warum-wir" class="bg-white py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16" data-animate>
-      <h2 class="font-display text-4xl md:text-5xl font-bold text-brand-ink mb-4">
-        Warum wir anders sind 🤝
+      <h2 class="font-display text-4xl md:text-5xl font-bold text-brand-navy mb-4">
+        Warum unabhängige Beratung?
       </h2>
-      <p class="text-xl text-brand-ink/60 max-w-2xl mx-auto leading-relaxed">
-        Klassische Berater verdienen an Provisionen. Wir nicht. Unser Erfolg&nbsp;=&nbsp;dein Erfolg.
+      <p class="text-xl text-brand-slate max-w-2xl mx-auto leading-relaxed">
+        Klassische Berater verdienen an Provisionen. Ich nicht. Mein Erfolg misst sich ausschließlich an Ihrem.
       </p>
     </div>
 
@@ -42,19 +34,16 @@ const cards = [
       {cards.map((card, i) => (
         <div
           data-animate
-          style={`transition-delay: ${i * 100}ms`}
-          class={`${card.bg} rounded-3xl p-8 border-2 border-transparent hover:border-brand-mint hover:shadow-xl hover:-translate-y-1 transition-all duration-300`}
+          style={`transition-delay:${i * 100}ms`}
+          class="bg-white rounded-xl p-8 border border-brand-border shadow-sm hover:shadow-md transition-shadow duration-300"
         >
-          <div class="text-4xl mb-5" aria-hidden="true">{card.emoji}</div>
-          <h3 class="font-display text-xl font-bold text-brand-ink mb-3">{card.title}</h3>
-          <p class="text-brand-ink/65 leading-relaxed text-sm md:text-base">{card.text}</p>
+          <div class="w-10 h-10 rounded-lg bg-brand-ice flex items-center justify-center mb-5" aria-hidden="true">
+            <svg class="w-5 h-5 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+          </div>
+          <h3 class="font-display text-lg font-bold text-brand-navy mb-3">{card.title}</h3>
+          <p class="text-brand-slate leading-relaxed text-sm">{card.text}</p>
         </div>
       ))}
     </div>
   </div>
-
-  <!-- Wave to brand-soft -->
-  <svg viewBox="0 0 1440 70" fill="#FFF8F0" preserveAspectRatio="none" aria-hidden="true" style="display:block;margin-bottom:-2px">
-    <path d="M0,35 C360,70 1080,0 1440,35 L1440,70 L0,70 Z"/>
-  </svg>
 </section>
