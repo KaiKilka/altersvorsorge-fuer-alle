@@ -1,0 +1,120 @@
+---
+const plans = [
+  {
+    emoji: '🌱',
+    name: 'Basis',
+    price: '97',
+    tagline: 'Für Einsteiger & erste Orientierung',
+    features: [
+      'Finanzielle Standortbestimmung',
+      'Rentenlücken-Analyse',
+      'Schriftlicher Bericht + Empfehlungen',
+      '1× 60 Min. Online-Beratung',
+      '30 Tage E-Mail-Support',
+    ],
+    cta: 'Jetzt buchen',
+    highlighted: false,
+  },
+  {
+    emoji: '🌿',
+    name: 'Vorsorge Plus',
+    price: '197',
+    tagline: 'Für alle, die einen klaren Plan wollen',
+    features: [
+      'Alles aus Basis',
+      'Individueller 10-Jahres-Fahrplan',
+      'Unabhängiger ETF & Produkt-Vergleich',
+      'Steueroptimierung Grundlagen',
+      '2× 60 Min. Online-Beratung',
+      '90 Tage E-Mail-Support',
+    ],
+    cta: 'Empfohlen wählen',
+    highlighted: true,
+  },
+  {
+    emoji: '🌳',
+    name: 'Premium',
+    price: '347',
+    tagline: 'Für umfassende Finanzplanung',
+    features: [
+      'Alles aus Vorsorge Plus',
+      'Vollständige Finanzplanung',
+      'Bestehende Verträge prüfen',
+      'Jährliches Update-Gespräch (1 Jahr)',
+      'Priority Support 12 Monate',
+      'Persönlicher Ansprechpartner',
+    ],
+    cta: 'Jetzt buchen',
+    highlighted: false,
+  },
+];
+---
+
+<section id="pakete" class="bg-white pt-20 pb-0">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+    <div class="text-center mb-16" data-animate>
+      <h2 class="font-display text-4xl md:text-5xl font-bold text-brand-ink mb-4">
+        Unsere Pakete 💼
+      </h2>
+      <p class="text-xl text-brand-ink/60 max-w-2xl mx-auto">
+        Einmalige Festpreise. Keine Provisionen. Keine Überraschungen.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+      {plans.map((plan, i) => (
+        <div
+          data-animate
+          class={[
+            'relative rounded-3xl p-8 border-2 transition-all duration-300 hover:scale-[1.02]',
+            plan.highlighted
+              ? 'bg-white border-brand-mint shadow-2xl'
+              : 'bg-white border-gray-100 shadow-lg hover:shadow-xl',
+          ].join(' ')}
+          style={`transition-delay:${i * 120}ms${plan.highlighted ? ';box-shadow:0 20px 60px rgba(62,207,178,0.22)' : ''}`}
+        >
+          {plan.highlighted && (
+            <div class="absolute -top-4 right-6 bg-brand-coral text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-md">
+              Empfohlen
+            </div>
+          )}
+
+          <div class="text-4xl mb-4" aria-hidden="true">{plan.emoji}</div>
+          <h3 class="font-display text-2xl font-bold text-brand-ink mb-1">{plan.name}</h3>
+          <p class="text-brand-ink/55 text-sm mb-6">{plan.tagline}</p>
+
+          <div class="mb-8">
+            <span class="font-display text-5xl font-bold text-brand-ink">{plan.price}€</span>
+            <span class="text-brand-ink/50 text-sm ml-1">einmalig</span>
+          </div>
+
+          <ul class="space-y-3 mb-8">
+            {plan.features.map((f) => (
+              <li class="flex items-start gap-2.5 text-sm text-brand-ink/75">
+                <span class="text-brand-mint font-bold mt-0.5 shrink-0">✔</span>
+                <span>{f}</span>
+              </li>
+            ))}
+          </ul>
+
+          <a
+            href="#kontakt"
+            class={[
+              'block w-full text-center py-3.5 rounded-full font-semibold text-base transition-all duration-200 hover:scale-105',
+              plan.highlighted
+                ? 'bg-brand-coral text-white hover:bg-brand-coral/90 shadow-lg'
+                : 'bg-brand-ink/6 text-brand-ink hover:bg-brand-ink hover:text-white',
+            ].join(' ')}
+          >
+            {plan.cta}
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Wave to brand-mist -->
+  <svg viewBox="0 0 1440 70" fill="#F0F7FF" preserveAspectRatio="none" aria-hidden="true" style="display:block;margin-bottom:-2px">
+    <path d="M0,35 C240,70 480,0 720,35 C960,70 1200,0 1440,35 L1440,70 L0,70 Z"/>
+  </svg>
+</section>

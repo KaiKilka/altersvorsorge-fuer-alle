@@ -1,0 +1,81 @@
+---
+---
+
+<nav id="nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 md:h-20">
+      <a href="/" class="flex items-center gap-2 font-display font-semibold text-brand-ink hover:opacity-80 transition-opacity">
+        <span class="text-2xl" aria-hidden="true">🌱</span>
+        <span class="text-base md:text-lg leading-tight">Altersvorsorge für alle</span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#warum-wir" class="text-sm font-medium text-brand-ink/70 hover:text-brand-ink transition-colors duration-200">Warum wir</a>
+        <a href="#pakete"    class="text-sm font-medium text-brand-ink/70 hover:text-brand-ink transition-colors duration-200">Pakete</a>
+        <a href="#so-gehts"  class="text-sm font-medium text-brand-ink/70 hover:text-brand-ink transition-colors duration-200">So geht's</a>
+        <a href="#faq"       class="text-sm font-medium text-brand-ink/70 hover:text-brand-ink transition-colors duration-200">FAQ</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a
+          href="#pakete"
+          class="hidden md:inline-flex items-center bg-brand-coral text-white px-5 py-2.5 rounded-full font-semibold text-sm hover:bg-brand-coral/90 hover:scale-105 transition-all duration-200 shadow-md"
+        >
+          Jetzt starten →
+        </a>
+        <button
+          id="nav-toggle"
+          aria-label="Menü öffnen"
+          aria-expanded="false"
+          class="md:hidden p-2 rounded-xl text-brand-ink hover:bg-gray-100 transition-colors"
+        >
+          <svg id="icon-open"  class="w-6 h-6"        fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="md:hidden hidden border-t border-gray-100 bg-white/95 backdrop-blur-md">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-1">
+      <a href="#warum-wir" class="mobile-link py-3 px-3 font-medium text-brand-ink rounded-xl hover:bg-brand-sky transition-colors">Warum wir</a>
+      <a href="#pakete"    class="mobile-link py-3 px-3 font-medium text-brand-ink rounded-xl hover:bg-brand-sky transition-colors">Pakete</a>
+      <a href="#so-gehts"  class="mobile-link py-3 px-3 font-medium text-brand-ink rounded-xl hover:bg-brand-sky transition-colors">So geht's</a>
+      <a href="#faq"       class="mobile-link py-3 px-3 font-medium text-brand-ink rounded-xl hover:bg-brand-sky transition-colors">FAQ</a>
+      <a href="#pakete"    class="mobile-link mt-2 bg-brand-coral text-white py-3 rounded-full font-semibold text-center hover:bg-brand-coral/90 transition-colors">Jetzt starten →</a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const nav        = document.getElementById('nav');
+  const toggle     = document.getElementById('nav-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const iconOpen   = document.getElementById('icon-open');
+  const iconClose  = document.getElementById('icon-close');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      nav?.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-sm');
+    } else {
+      nav?.classList.remove('bg-white/90', 'backdrop-blur-md', 'shadow-sm');
+    }
+  }, { passive: true });
+
+  toggle?.addEventListener('click', () => {
+    const isHidden = mobileMenu?.classList.contains('hidden');
+    mobileMenu?.classList.toggle('hidden');
+    iconOpen?.classList.toggle('hidden', isHidden);
+    iconClose?.classList.toggle('hidden', !isHidden);
+    toggle.setAttribute('aria-expanded', String(isHidden));
+  });
+
+  document.querySelectorAll('.mobile-link').forEach((link) => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+      iconOpen?.classList.remove('hidden');
+      iconClose?.classList.add('hidden');
+      toggle?.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>

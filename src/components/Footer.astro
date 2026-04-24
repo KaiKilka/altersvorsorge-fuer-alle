@@ -1,0 +1,64 @@
+---
+const links = {
+  Seiten: [
+    { label: 'Warum wir', href: '#warum-wir' },
+    { label: 'Pakete',    href: '#pakete' },
+    { label: 'So geht\'s', href: '#so-gehts' },
+    { label: 'FAQ',       href: '#faq' },
+  ],
+  Rechtliches: [
+    { label: 'Impressum',       href: '/impressum' },
+    { label: 'Datenschutz',     href: '/datenschutz' },
+    { label: 'AGB',             href: '/agb' },
+    { label: 'Cookie-Einwilligung', href: '#' },
+  ],
+  Kontakt: [
+    { label: 'hallo@altersvorsorge-fuer-alle.de', href: 'mailto:hallo@altersvorsorge-fuer-alle.de' },
+    { label: 'Online-Terminbuchung', href: '#pakete' },
+    { label: 'LinkedIn',            href: '#' },
+  ],
+};
+---
+
+<footer class="bg-brand-ink text-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-10">
+    <!-- Top row -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-14">
+      <!-- Brand -->
+      <div class="md:col-span-1">
+        <a href="/" class="flex items-center gap-2 font-display font-semibold text-xl text-white mb-4 hover:opacity-80 transition-opacity">
+          <span class="text-2xl" aria-hidden="true">🌱</span>
+          <span>Altersvorsorge für alle</span>
+        </a>
+        <p class="text-white/55 text-sm leading-relaxed">
+          Faire Altersvorsorge für alle Menschen — unabhängig, transparent, menschlich.
+        </p>
+      </div>
+
+      <!-- Link columns -->
+      {Object.entries(links).map(([col, items]) => (
+        <div>
+          <h3 class="font-semibold text-white/80 text-sm uppercase tracking-wider mb-4">{col}</h3>
+          <ul class="space-y-3">
+            {items.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  class="text-white/50 hover:text-white text-sm transition-colors duration-200 break-all"
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-3 text-white/40 text-xs">
+      <p>© 2025 Altersvorsorge für alle</p>
+      <p class="text-center">Unabhängige Finanzberatung — kein Versicherungsvertrieb</p>
+    </div>
+  </div>
+</footer>

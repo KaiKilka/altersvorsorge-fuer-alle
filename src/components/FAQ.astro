@@ -1,0 +1,93 @@
+---
+const faqs = [
+  {
+    q: 'Seid ihr wirklich unabhängig von Versicherungen?',
+    a: 'Ja, vollständig. Wir sind nicht an Versicherungsgesellschaften gebunden, erhalten keine Provisionen und verkaufen keine Policen. Wir empfehlen nur das, was wirklich zu dir passt — und verdienen ausschließlich durch unsere transparenten Beratungsgebühren.',
+  },
+  {
+    q: 'Was kostet mich das genau — gibt es versteckte Gebühren?',
+    a: 'Nein. Du zahlst einmalig den Paketpreis, der klar auf unserer Seite ausgewiesen ist. Keine laufenden Gebühren, kein Abo, keine Überraschungen. Was du siehst, ist was du zahlst.',
+  },
+  {
+    q: 'Für wen ist das geeignet?',
+    a: 'Für alle. Ob du gerade deinen ersten Job angetreten hast, Mitte 30 bist und endlich einen Plan brauchst oder mit 55 noch einmal alles auf den Prüfstand stellen willst — wir haben das passende Paket für dich.',
+  },
+  {
+    q: 'Wie läuft das Online-Gespräch ab?',
+    a: 'Nach der Buchung erhältst du einen Link zur Terminbuchung. Das Gespräch findet per Videokonferenz statt. Vorher füllst du einen kurzen Fragebogen aus (ca. 10 Minuten), damit wir optimal vorbereitet sind.',
+  },
+  {
+    q: 'Was passiert nach der Beratung?',
+    a: 'Du erhältst deinen schriftlichen Fahrplan innerhalb von 3–5 Werktagen nach dem Gespräch. Im gebuchten Zeitraum stehen wir dir per E-Mail für Rückfragen zur Verfügung. Premium-Kunden erhalten zusätzlich ein Jahres-Update-Gespräch.',
+  },
+  {
+    q: 'Ich bin schon 55 — ist es noch sinnvoll?',
+    a: 'Absolut. Die Zeit bis zur Rente ist wertvoller als du denkst. Selbst in den letzten Jahren vor dem Ruhestand lässt sich durch gezielte Optimierung, Steuergestaltung und die richtige Entnahme-Strategie viel erreichen.',
+  },
+];
+---
+
+<section id="faq" class="bg-white pt-20 pb-0">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+    <div class="text-center mb-16" data-animate>
+      <h2 class="font-display text-4xl md:text-5xl font-bold text-brand-ink mb-4">
+        Häufige Fragen 🙋
+      </h2>
+    </div>
+
+    <div class="space-y-0" data-animate style="transition-delay:100ms">
+      {faqs.map((faq, i) => (
+        <div class="border-b border-gray-100 last:border-0">
+          <button
+            class="accordion-btn w-full flex justify-between items-center py-5 text-left gap-4 group"
+            aria-expanded="false"
+          >
+            <span class="font-semibold text-brand-ink group-hover:text-brand-mint transition-colors duration-200 text-base md:text-lg">
+              {faq.q}
+            </span>
+            <span class="accordion-icon shrink-0 w-7 h-7 rounded-full bg-brand-ink/6 flex items-center justify-center text-brand-ink font-bold text-lg transition-all duration-300" aria-hidden="true">
+              +
+            </span>
+          </button>
+          <div class="accordion-content overflow-hidden" style="max-height:0;transition:max-height 0.35s ease">
+            <p class="text-brand-ink/70 leading-relaxed pb-6 pr-12 text-sm md:text-base">
+              {faq.a}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Wave to gradient -->
+  <svg viewBox="0 0 1440 70" fill="#3ECFB2" preserveAspectRatio="none" aria-hidden="true" style="display:block;margin-bottom:-2px;opacity:0.15">
+    <path d="M0,35 C240,70 480,0 720,35 C960,70 1200,0 1440,35 L1440,70 L0,70 Z"/>
+  </svg>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('.accordion-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const content = btn.nextElementSibling as HTMLElement;
+      const icon    = btn.querySelector('.accordion-icon') as HTMLElement;
+      const isOpen  = content.style.maxHeight !== '0px' && content.style.maxHeight !== '';
+
+      // Close all
+      document.querySelectorAll<HTMLElement>('.accordion-content').forEach((el) => {
+        el.style.maxHeight = '0px';
+      });
+      document.querySelectorAll<HTMLElement>('.accordion-icon').forEach((el) => {
+        el.style.transform = 'rotate(0deg)';
+      });
+      document.querySelectorAll<HTMLButtonElement>('.accordion-btn').forEach((b) => {
+        b.setAttribute('aria-expanded', 'false');
+      });
+
+      if (!isOpen) {
+        content.style.maxHeight = content.scrollHeight + 'px';
+        icon.style.transform = 'rotate(45deg)';
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>

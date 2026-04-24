@@ -1,0 +1,76 @@
+---
+const testimonials = [
+  {
+    quote: 'Ich dachte Altersvorsorge wäre kompliziert und teuer. Nach dem Gespräch hatte ich endlich einen klaren Plan — und das für einen fairen Preis.',
+    name: 'Sarah M.',
+    age: 34,
+    initials: 'SM',
+    color: 'bg-brand-mint',
+  },
+  {
+    quote: 'Endlich mal jemand, der mir nicht irgendwas verkaufen will. Die Beratung war ehrlich und auf mich zugeschnitten.',
+    name: 'Thomas K.',
+    age: 42,
+    initials: 'TK',
+    color: 'bg-brand-coral',
+  },
+  {
+    quote: 'Als Freelancer war ich total überfordert. Jetzt weiß ich genau, was ich tun muss.',
+    name: 'Lena B.',
+    age: 29,
+    initials: 'LB',
+    color: 'bg-brand-sun',
+  },
+];
+---
+
+<section class="bg-brand-mist pt-0 pb-0">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+    <div class="text-center mb-16" data-animate>
+      <h2 class="font-display text-4xl md:text-5xl font-bold text-brand-ink mb-4">
+        Was unsere Kunden sagen 💬
+      </h2>
+    </div>
+
+    <!-- Desktop: 3 columns | Mobile: horizontal scroll snap -->
+    <div
+      class="flex gap-6 overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-3 md:overflow-visible pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0"
+      role="list"
+    >
+      {testimonials.map((t, i) => (
+        <div
+          data-animate
+          style={`transition-delay:${i * 120}ms`}
+          class="snap-center shrink-0 w-[82vw] sm:w-[65vw] md:w-auto bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition-shadow duration-300 relative"
+          role="listitem"
+        >
+          <!-- Decorative quote mark -->
+          <div class="absolute top-6 right-8 font-display text-7xl leading-none text-brand-mint/20 select-none" aria-hidden="true">"</div>
+
+          <div class="flex gap-1 mb-5" aria-label="5 von 5 Sterne">
+            {Array(5).fill(null).map(() => <span class="text-brand-sun text-lg" aria-hidden="true">⭐</span>)}
+          </div>
+
+          <blockquote class="text-brand-ink/80 leading-relaxed mb-6 relative z-10">
+            "{t.quote}"
+          </blockquote>
+
+          <div class="flex items-center gap-3">
+            <div class={`${t.color} w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm shrink-0`} aria-hidden="true">
+              {t.initials}
+            </div>
+            <div>
+              <p class="font-semibold text-brand-ink text-sm">{t.name}</p>
+              <p class="text-brand-ink/50 text-xs">{t.age} Jahre</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Wave to white -->
+  <svg viewBox="0 0 1440 70" fill="white" preserveAspectRatio="none" aria-hidden="true" style="display:block;margin-bottom:-2px">
+    <path d="M0,35 C360,70 1080,0 1440,35 L1440,70 L0,70 Z"/>
+  </svg>
+</section>
