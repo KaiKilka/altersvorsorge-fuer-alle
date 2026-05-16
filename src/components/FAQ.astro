@@ -1,0 +1,81 @@
+---
+const faqs = [
+  {
+    q: 'Sind Sie wirklich unabhängig von Versicherungen?',
+    a: 'Ja, vollständig. Ich bin an keine Versicherungsgesellschaft gebunden, erhalte keine Provisionen und verkaufe keine Policen. Ich empfehle ausschließlich das, was wirklich zu Ihrer Situation passt — und verdiene einzig durch die transparenten Beratungsgebühren.',
+  },
+  {
+    q: 'Was kostet die Beratung genau — gibt es versteckte Gebühren?',
+    a: 'Nein. Sie zahlen einmalig den Paketpreis, der klar ausgewiesen ist. Keine laufenden Gebühren, kein Abo, keine Überraschungen. Was Sie sehen, ist was Sie zahlen.',
+  },
+  {
+    q: 'Für wen ist das Angebot geeignet?',
+    a: 'Für alle. Ob Sie gerade Ihren ersten Job angetreten haben, Mitte 30 sind und endlich einen Plan brauchen, oder mit 55 alles auf den Prüfstand stellen möchten — es gibt ein passendes Paket für Sie.',
+  },
+  {
+    q: 'Wie läuft das Online-Gespräch ab?',
+    a: 'Nach der Buchung erhalten Sie einen Link zur Terminauswahl. Das Gespräch findet per Videokonferenz statt. Vorab füllen Sie einen kurzen Fragebogen aus (ca. 10 Minuten), damit ich optimal vorbereitet bin.',
+  },
+  {
+    q: 'Was erhalte ich nach der Beratung?',
+    a: 'Sie erhalten Ihren schriftlichen Fahrplan innerhalb von 3–5 Werktagen nach dem Gespräch. Im gebuchten Zeitraum stehe ich Ihnen per E-Mail für Rückfragen zur Verfügung. Premium-Klienten erhalten zusätzlich ein jährliches Update-Gespräch.',
+  },
+  {
+    q: 'Ich bin bereits 55 — lohnt sich das noch?',
+    a: 'Absolut. Die verbleibende Zeit bis zur Rente ist wertvoller als viele denken. Selbst in den letzten Jahren vor dem Ruhestand lässt sich durch gezielte Optimierung, Steuergestaltung und die richtige Entnahme-Strategie viel erreichen.',
+  },
+];
+---
+
+<section id="faq" class="bg-brand-ice py-24">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16" data-animate>
+      <h2 class="font-display text-4xl md:text-5xl font-bold text-brand-navy mb-4">
+        Häufige Fragen
+      </h2>
+    </div>
+
+    <div data-animate style="transition-delay:100ms" class="bg-white rounded-xl border border-brand-border shadow-sm overflow-hidden">
+      {faqs.map((faq) => (
+        <div class="border-b border-brand-border last:border-0">
+          <button
+            class="accordion-btn w-full flex justify-between items-center px-6 py-5 text-left gap-4 group"
+            aria-expanded="false"
+          >
+            <span class="font-semibold text-brand-navy group-hover:text-brand-blue transition-colors duration-200 text-base">
+              {faq.q}
+            </span>
+            <span class="accordion-icon shrink-0 w-7 h-7 rounded-md border border-brand-border flex items-center justify-center text-brand-blue font-bold text-lg transition-all duration-300" aria-hidden="true">
+              +
+            </span>
+          </button>
+          <div class="accordion-content overflow-hidden" style="max-height:0;transition:max-height 0.35s ease">
+            <p class="text-brand-slate leading-relaxed px-6 pb-6 pr-16 text-sm">
+              {faq.a}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('.accordion-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const content = btn.nextElementSibling as HTMLElement;
+      const icon    = btn.querySelector('.accordion-icon') as HTMLElement;
+      const isOpen  = content.style.maxHeight !== '0px' && content.style.maxHeight !== '';
+
+      document.querySelectorAll<HTMLElement>('.accordion-content').forEach((el) => { el.style.maxHeight = '0px'; });
+      document.querySelectorAll<HTMLElement>('.accordion-icon').forEach((el) => { el.style.transform = 'rotate(0deg)'; });
+      document.querySelectorAll<HTMLButtonElement>('.accordion-btn').forEach((b) => { b.setAttribute('aria-expanded', 'false'); });
+
+      if (!isOpen) {
+        content.style.maxHeight = content.scrollHeight + 'px';
+        icon.style.transform = 'rotate(45deg)';
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>

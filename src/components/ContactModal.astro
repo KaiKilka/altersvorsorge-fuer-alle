@@ -1,0 +1,131 @@
+---
+---
+
+<div id="contact-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+  <!-- Overlay -->
+  <div id="modal-overlay" class="absolute inset-0 bg-brand-navy/60 backdrop-blur-sm"></div>
+
+  <!-- Modal box -->
+  <div
+    id="modal-box"
+    class="relative bg-white rounded-xl shadow-2xl max-w-lg w-full p-8 z-10"
+    style="animation: modalIn 0.2s ease forwards"
+  >
+    <!-- Close button -->
+    <button
+      id="modal-close"
+      aria-label="Schließen"
+      class="absolute top-4 right-4 text-brand-slate hover:text-brand-navy transition-colors text-2xl leading-none w-8 h-8 flex items-center justify-center rounded-lg hover:bg-brand-ice"
+    >
+      ×
+    </button>
+
+    <!-- Header -->
+    <div class="mb-6">
+      <span class="inline-block text-brand-sky font-semibold text-xs tracking-widest uppercase mb-2">Kontakt aufnehmen</span>
+      <h2 class="font-display text-2xl font-bold text-brand-navy mb-1">Wir melden uns bei Ihnen</h2>
+      <p class="text-brand-slate text-sm">Füllen Sie das Formular aus — Peter Kilka meldet sich persönlich bei Ihnen.</p>
+    </div>
+
+    <!-- Form -->
+    <form id="contact-form" novalidate>
+      <div class="space-y-4">
+        <div>
+          <label for="modal-name" class="block text-sm font-medium text-brand-ink mb-1">Vor- und Nachname <span class="text-brand-blue">*</span></label>
+          <input
+            id="modal-name"
+            type="text"
+            required
+            placeholder="Max Mustermann"
+            class="w-full border border-brand-border rounded-lg px-4 py-3 text-brand-ink text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent"
+          />
+        </div>
+
+        <div>
+          <label for="modal-email" class="block text-sm font-medium text-brand-ink mb-1">E-Mail-Adresse <span class="text-brand-blue">*</span></label>
+          <input
+            id="modal-email"
+            type="email"
+            required
+            placeholder="ihre@email.de"
+            class="w-full border border-brand-border rounded-lg px-4 py-3 text-brand-ink text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent"
+          />
+        </div>
+
+        <div>
+          <label for="modal-tel" class="block text-sm font-medium text-brand-ink mb-1">Telefonnummer <span class="text-brand-slate font-normal">(optional)</span></label>
+          <input
+            id="modal-tel"
+            type="tel"
+            placeholder="+49 123 456789"
+            class="w-full border border-brand-border rounded-lg px-4 py-3 text-brand-ink text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent"
+          />
+        </div>
+
+        <div>
+          <label for="modal-paket" class="block text-sm font-medium text-brand-ink mb-1">Gewünschtes Paket <span class="text-brand-blue">*</span></label>
+          <select
+            id="modal-paket"
+            required
+            class="w-full border border-brand-border rounded-lg px-4 py-3 text-brand-ink text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent bg-white"
+          >
+            <option value="" disabled selected>Bitte wählen...</option>
+            <option value="basis">Basis — 59 €</option>
+            <option value="plus">Vorsorge Plus — 99 €</option>
+            <option value="premium">Premium — 149 €</option>
+            <option value="unsicher">Ich bin mir noch nicht sicher</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="modal-message" class="block text-sm font-medium text-brand-ink mb-1">Ihre Nachricht <span class="text-brand-blue">*</span></label>
+          <textarea
+            id="modal-message"
+            rows="3"
+            required
+            placeholder="Was beschäftigt Sie aktuell bei Ihrer Altersvorsorge?"
+            class="w-full border border-brand-border rounded-lg px-4 py-3 text-brand-ink text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent resize-none"
+          ></textarea>
+        </div>
+      </div>
+
+      <button
+        type="submit"
+        id="modal-submit"
+        class="w-full mt-6 bg-brand-blue hover:bg-brand-navy text-white rounded-lg py-3 font-medium text-sm transition-colors duration-200"
+      >
+        Nachricht absenden
+      </button>
+
+      <p class="text-xs text-brand-slate text-center mt-3">
+        Ihre Daten werden vertraulich behandelt und nicht an Dritte weitergegeben.
+      </p>
+    </form>
+
+    <!-- Success state (hidden by default) -->
+    <div id="modal-success" class="hidden text-center py-6">
+      <div class="flex justify-center mb-4">
+        <svg class="w-14 h-14 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+      </div>
+      <h3 class="font-display text-2xl font-bold text-brand-navy mb-3">Vielen Dank!</h3>
+      <p class="text-brand-slate text-sm mb-6">
+        Peter Kilka meldet sich persönlich bei Ihnen — in der Regel innerhalb von 24 Stunden.
+      </p>
+      <button
+        id="modal-success-close"
+        class="bg-brand-blue hover:bg-brand-navy text-white px-6 py-2.5 rounded-lg font-medium text-sm transition-colors duration-200"
+      >
+        Schließen
+      </button>
+    </div>
+  </div>
+</div>
+
+<style>
+  @keyframes modalIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+</style>

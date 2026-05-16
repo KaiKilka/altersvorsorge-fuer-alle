@@ -1,0 +1,49 @@
+---
+const cards = [
+  {
+    title: 'Keine Provisionen',
+    text: 'Ich verkaufe keine Versicherungsprodukte und erhalte keine Provisionen. Was ich Ihnen empfehle, dient ausschließlich Ihren Interessen.',
+  },
+  {
+    title: 'Faire Festpreise',
+    text: 'Einmalige, transparente Preise. Kein Abo, keine versteckten Kosten, keine Überraschungen.',
+  },
+  {
+    title: 'Ihr persönlicher Plan',
+    text: 'Kein Schema F. Ich analysiere Ihre individuelle Situation und erstelle einen maßgeschneiderten Vorsorgefahrplan.',
+  },
+  {
+    title: 'Für alle zugänglich',
+    text: 'Ob Berufseinsteiger, Familie oder kurz vor der Rente — gute Vorsorgeberatung sollte keine Frage des Einkommens sein.',
+  },
+];
+---
+
+<section id="warum-wir" class="bg-white py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16" data-animate>
+      <h2 class="font-display text-4xl md:text-5xl font-bold text-brand-navy mb-4">
+        Warum unabhängige Beratung?
+      </h2>
+      <p class="text-xl text-brand-slate max-w-2xl mx-auto leading-relaxed">
+        Klassische Berater verdienen an Provisionen. Ich nicht. Mein Erfolg misst sich ausschließlich an Ihrem.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {cards.map((card, i) => (
+        <div
+          data-animate
+          style={`transition-delay:${i * 100}ms`}
+          class="bg-white rounded-xl p-8 border border-brand-border shadow-sm hover:shadow-md transition-shadow duration-300"
+        >
+          <div class="w-10 h-10 rounded-lg bg-brand-ice flex items-center justify-center mb-5" aria-hidden="true">
+            <svg class="w-5 h-5 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+          </div>
+          <h3 class="font-display text-lg font-bold text-brand-navy mb-3">{card.title}</h3>
+          <p class="text-brand-slate leading-relaxed text-sm">{card.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

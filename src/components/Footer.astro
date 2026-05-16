@@ -1,0 +1,54 @@
+---
+const links = {
+  Seiten: [
+    { label: 'Warum ich',   href: '#warum-wir' },
+    { label: 'Pakete',      href: '#pakete' },
+    { label: 'Über mich',   href: '#ueber-mich' },
+    { label: "So geht's",   href: '#so-gehts' },
+    { label: 'FAQ',         href: '#faq' },
+  ],
+  Rechtliches: [
+    { label: 'Impressum',   href: '/impressum' },
+    { label: 'Datenschutz', href: '/datenschutz' },
+    { label: 'AGB',         href: '/agb' },
+  ],
+  Kontakt: [
+    { label: 'peter@altersvorsorgeplanung-fuer-alle.de', href: 'mailto:peter@altersvorsorgeplanung-fuer-alle.de' },
+  ],
+};
+---
+
+<footer class="bg-brand-navy text-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-10">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-14">
+      <div class="md:col-span-1">
+        <a href="/" class="block font-display font-semibold text-lg text-white mb-4 hover:opacity-80 transition-opacity">
+          Altersvorsorgeplanung für alle
+        </a>
+        <p class="text-white/50 text-sm leading-relaxed">
+          Faire, unabhängige Altersvorsorgeplanung für alle Menschen — transparent, persönlich, provisionsfrei.
+        </p>
+      </div>
+
+      {Object.entries(links).map(([col, items]) => (
+        <div>
+          <h3 class="font-semibold text-brand-sky text-xs uppercase tracking-widest mb-4">{col}</h3>
+          <ul class="space-y-3">
+            {items.map((item) => (
+              <li>
+                <a href={item.href} class="text-white/50 hover:text-white text-sm transition-colors duration-200 break-all">
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-3 text-white/35 text-xs">
+      <p>© 2025 Altersvorsorgeplanung für alle · Peter Kilka</p>
+      <p>Unabhängige Finanzberatung — kein Versicherungsvertrieb</p>
+    </div>
+  </div>
+</footer>

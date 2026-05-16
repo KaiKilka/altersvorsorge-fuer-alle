@@ -1,0 +1,112 @@
+---
+const plans = [
+  {
+    name: 'Basis',
+    price: '59',
+    tagline: 'Für die erste Orientierung',
+    features: [
+      'Finanzielle Standortbestimmung',
+      'Rentenlücken-Analyse',
+      'Schriftlicher Bericht mit Empfehlungen',
+      '1× 60 Min. Online-Beratung',
+    ],
+    cta: 'Jetzt buchen',
+    highlighted: false,
+  },
+  {
+    name: 'Vorsorge Plus',
+    price: '99',
+    tagline: 'Für einen klaren Vorsorgefahrplan',
+    features: [
+      'Alles aus Basis',
+      'Individueller 10-Jahres-Fahrplan',
+      'Unabhängiger ETF & Produktvergleich',
+      'Steueroptimierung Grundlagen',
+      '2× 60 Min. Online-Beratung',
+    ],
+    cta: 'Empfohlenes Paket wählen',
+    highlighted: true,
+  },
+  {
+    name: 'Premium',
+    price: '149',
+    tagline: 'Für umfassende Finanzplanung',
+    features: [
+      'Alles aus Vorsorge Plus',
+      'Vollständige Finanzplanung',
+      'Bestehende Verträge prüfen',
+      'Jährliches Update-Gespräch',
+      'Persönlicher Ansprechpartner',
+    ],
+    cta: 'Jetzt buchen',
+    highlighted: false,
+  },
+];
+---
+
+<section id="pakete" class="bg-brand-ice py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16" data-animate>
+      <h2 class="font-display text-4xl md:text-5xl font-bold text-brand-navy mb-4">
+        Unsere Pakete
+      </h2>
+      <p class="text-xl text-brand-slate max-w-2xl mx-auto">
+        Einmalige Festpreise. Keine Provisionen. Keine Überraschungen.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+      {plans.map((plan, i) => (
+        <div
+          data-animate
+          style={`transition-delay:${i * 120}ms`}
+          class={[
+            'relative rounded-xl p-8 border flex flex-col transition-shadow duration-300 hover:shadow-lg',
+            plan.highlighted
+              ? 'bg-brand-navy border-brand-navy text-white'
+              : 'bg-white border-brand-border shadow-sm',
+          ].join(' ')}
+        >
+          {plan.highlighted && (
+            <div class="absolute -top-3.5 right-6 bg-brand-blue text-white text-xs font-bold px-3 py-1 rounded-md shadow-sm">
+              Empfohlen
+            </div>
+          )}
+
+          <div class="mb-6">
+            <h3 class={`font-display text-2xl font-bold mb-1 ${plan.highlighted ? 'text-white' : 'text-brand-navy'}`}>
+              {plan.name}
+            </h3>
+            <p class={`text-sm ${plan.highlighted ? 'text-white/70' : 'text-brand-slate'}`}>{plan.tagline}</p>
+          </div>
+
+          <div class="mb-8">
+            <span class={`font-display text-5xl font-bold ${plan.highlighted ? 'text-white' : 'text-brand-navy'}`}>{plan.price} €</span>
+            <span class={`text-sm ml-1 ${plan.highlighted ? 'text-white/60' : 'text-brand-slate'}`}>einmalig</span>
+          </div>
+
+          <ul class="space-y-3 mb-8 flex-1">
+            {plan.features.map((f) => (
+              <li class="flex items-start gap-2.5 text-sm">
+                <svg class={`w-4 h-4 shrink-0 mt-0.5 ${plan.highlighted ? 'text-white/80' : 'text-brand-blue'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span class={plan.highlighted ? 'text-white/85' : 'text-brand-slate'}>{f}</span>
+              </li>
+            ))}
+          </ul>
+
+          <button
+            data-open-modal
+            class={[
+              'block w-full text-center py-3 rounded-lg font-semibold text-sm transition-colors duration-200 cursor-pointer',
+              plan.highlighted
+                ? 'bg-white text-brand-navy hover:bg-brand-ice'
+                : 'bg-brand-blue text-white hover:bg-brand-navy',
+            ].join(' ')}
+          >
+            {plan.cta}
+          </button>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

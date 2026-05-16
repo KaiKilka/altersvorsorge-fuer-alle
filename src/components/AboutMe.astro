@@ -1,0 +1,58 @@
+---
+const credentials = [
+  '30+ Jahre Erfahrung & Expertise',
+  'Unabhängige Beratung',
+];
+---
+
+<section id="ueber-mich" class="bg-white border-t border-brand-border py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
+      <!-- Left: photo placeholder + credentials -->
+      <div data-animate>
+        <div class="bg-brand-ice rounded-xl aspect-square max-w-xs w-full flex items-center justify-center mb-6 border border-brand-border">
+          <span class="font-display text-2xl font-bold text-brand-navy">Peter Kilka</span>
+        </div>
+        <div class="flex flex-col gap-2">
+          {credentials.map((c) => (
+            <span class="inline-flex items-center gap-2 text-sm text-brand-slate border border-brand-border rounded-md px-3 py-1.5 w-fit">
+              <svg class="w-3.5 h-3.5 text-brand-blue shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              {c}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <!-- Right: text content -->
+      <div data-animate style="transition-delay:150ms">
+        <span class="inline-block text-brand-sky font-semibold text-xs tracking-widest uppercase mb-4">Über mich</span>
+
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-brand-navy mb-8 leading-tight">
+          Peter Kilka — Ihr unabhängiger Vorsorgeexperte
+        </h2>
+
+        <div class="space-y-5 text-brand-slate leading-relaxed">
+          <p>
+            Mit über 30 Jahren Erfahrung in der Finanz- und Altersvorsorgeplanung kenne ich die Herausforderungen, vor denen viele Menschen stehen: unübersichtliche Produkte, intransparente Kosten und Beratung, die vor allem Versicherungsinteressen dient.
+          </p>
+          <p>
+            Als langjähriger Kundenberater bei der Continentalen Versicherung habe ich tief in die Branche geschaut — und genau deshalb weiß ich, wie wichtig wirklich unabhängige Beratung ist. Altersvorsorgeplanung für alle steht dafür, dass gute Vorsorge keine Frage des Einkommens sein sollte.
+          </p>
+          <p>
+            Ich berate Sie persönlich, ehrlich und ausschließlich in Ihrem Interesse — ohne Provision, ohne versteckte Agenda.
+          </p>
+        </div>
+
+        <button
+          data-open-modal
+          class="inline-flex items-center gap-1.5 text-brand-blue font-semibold mt-8 hover:text-brand-navy transition-colors duration-200 cursor-pointer"
+        >
+          Jetzt anfragen
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>

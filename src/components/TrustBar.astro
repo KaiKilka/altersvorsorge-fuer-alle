@@ -1,0 +1,21 @@
+---
+const items = [
+  { emoji: '🏆', text: '100% unabhängig' },
+  { emoji: '💬', text: 'Persönliche Beratung' },
+  { emoji: '📋', text: 'Festpreise' },
+  { emoji: '🚫', text: 'Keine versteckten Kosten' },
+  { emoji: '⭐', text: 'Ø 4.9 Bewertung' },
+];
+---
+
+<div class="bg-brand-mint/10 border-y border-brand-mint/20 py-4 overflow-hidden" aria-label="Vertrauenssignale">
+  <div class="flex whitespace-nowrap animate-marquee">
+    {[...items, ...items].map((item) => (
+      <span class="inline-flex items-center gap-2.5 px-8 shrink-0">
+        <span class="text-lg" aria-hidden="true">{item.emoji}</span>
+        <span class="font-semibold text-brand-ink text-sm md:text-base">{item.text}</span>
+        <span class="ml-6 text-brand-mint/40 text-xs" aria-hidden="true">●</span>
+      </span>
+    ))}
+  </div>
+</div>
